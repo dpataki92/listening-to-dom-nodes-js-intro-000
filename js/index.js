@@ -14,7 +14,7 @@ input.addEventListener('keydown', function (e) {
 
 // prevents users from hitting key 'a'
 const input = document.querySelector('input')
- 
+
 input.addEventListener('keydown', function(e) {
   if (e.key === "a") {
     return e.preventDefault()
@@ -25,23 +25,23 @@ input.addEventListener('keydown', function(e) {
 
 // logs nodevalue + bubbled for target nodes and parent nodes as it triggers them from bottom to top
 let divs = document.querySelectorAll('div');
- 
+
 function bubble(e) {
 
   console.log(this.firstChild.nodeValue.trim() + ' bubbled');
 }
- 
+
 for (let i = 0; i < divs.length; i++) {
   divs[i].addEventListener('click', bubble);
 }
 
 // logs value + captured for the parent node and children nodes as it triggers them top to bottom
 divs = document.querySelectorAll('div');
- 
+
 function capture(e) {
   console.log(this.firstChild.nodeValue.trim() + ' captured');
 }
- 
+
 for (let i = 0; i < divs.length; i++) {
 
   divs[i].addEventListener('click', capture, true);
@@ -49,15 +49,14 @@ for (let i = 0; i < divs.length; i++) {
 
 // logs value + bubbled only for the first child because propagation is stopped
 const divs = document.querySelectorAll('div');
- 
+
 function bubble(e) {
-  
+
   e.stopPropagation();
- 
+
   console.log(this.firstChild.nodeValue.trim() + ' bubbled');
 }
- 
+
 for (let i = 0; i < divs.length; i++) {
   divs[i].addEventListener('click', bubble);
 }
-
